@@ -1,0 +1,7 @@
+URL del repositorio: pendiente de publicación
+
+Listado propuesto para el repositorio:
+- Código fuente y configuración Gradle del proyecto limpio.
+- LICENSE, NOTICE.md, README.md y THIRD_PARTY_NOTICES.md.
+- Documentación técnica y matriz de pruebas.
+- Sin llaves, contraseñas, local.properties, gradle.zip ni carpetas build.

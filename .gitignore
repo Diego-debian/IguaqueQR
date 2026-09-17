@@ -1,0 +1,40 @@
+# Gradle and Android generated files
+.gradle/
+build/
+app/build/
+**/build/
+
+# Android Studio and IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Local machine configuration
+local.properties
+
+# Signing material
+keystore.properties
+*.jks
+*.keystore
+*.p12
+*.pem
+
+# Environment and secret files
+.env
+.env.*
+*.secret
+*.credentials
+
+# Compressed private or temporary copies
+gradle.zip
+*.bak
+*.tmp
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Java and Kotlin artifacts
+*.class
+*.hprof

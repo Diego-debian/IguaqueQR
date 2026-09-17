@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1050" viewBox="0 0 1600 1050" role="img" aria-labelledby="title desc">
+  <title id="title">Boceto Iguaque QR, flujo guiado en seis pasos</title>
+  <desc id="desc">Cuatro pantallas móviles de un asistente de creación de códigos QR: enlace, estilo, accesibilidad y resultado.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#081225" flood-opacity="0.14"/>
+    </filter>
+    <linearGradient id="header" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2557D6"/>
+      <stop offset="1" stop-color="#6D28D9"/>
+    </linearGradient>
+    <style>
+      .ink { fill: #172033; font-family: Arial, sans-serif; }
+      .muted { fill: #637083; font-family: Arial, sans-serif; }
+      .small { font-size: 14px; }
+      .body { font-size: 17px; }
+      .title { font-size: 25px; font-weight: 700; }
+      .label { font-size: 13px; font-weight: 700; letter-spacing: 1.2px; }
+      .phone { fill: #FFFFFF; stroke: #D7DEE8; stroke-width: 2; }
+      .line { stroke: #D7DEE8; stroke-width: 2; stroke-linecap: round; }
+      .dot { fill: #2557D6; }
+      .active { fill: #2557D6; }
+      .inactive { fill: #D7DEE8; }
+      .outline { fill: none; stroke: #2557D6; stroke-width: 2; }
+      .teal { fill: #0F766E; }
+      .amber { fill: #B45309; }
+      .coral { fill: #C2410C; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="1050" fill="#F6F8FB"/>
+  <circle cx="1490" cy="90" r="180" fill="#E9EEFF"/>
+  <circle cx="80" cy="965" r="130" fill="#E2F3F0"/>
+
+  <text x="70" y="70" class="ink title">IGUAQUE QR / WIZARD</text>
+  <text x="70" y="103" class="muted body">De una pantalla larga a un flujo claro, reversible y con feedback.</text>
+  <rect x="1180" y="48" width="330" height="42" rx="21" fill="#172033"/>
+  <text x="1345" y="75" fill="#FFFFFF" text-anchor="middle" class="label">DUA · VISIBLE · DINÁMICO</text>
+
+  <!-- Progress rail -->
+  <text x="70" y="158" class="muted small">PROGRESO DEL FLUJO</text>
+  <line x1="70" y1="190" x2="1450" y2="190" stroke="#D7DEE8" stroke-width="4"/>
+  <circle cx="70" cy="190" r="9" class="active"/><circle cx="346" cy="190" r="9" class="active"/>
+  <circle cx="622" cy="190" r="9" class="active"/><circle cx="898" cy="190" r="9" class="active"/>
+  <circle cx="1174" cy="190" r="9" class="active"/><circle cx="1450" cy="190" r="9" class="inactive"/>
+  <text x="70" y="220" class="ink small">1 Enlace</text>
+  <text x="346" y="220" class="ink small" text-anchor="middle">2 Destino</text>
+  <text x="622" y="220" class="ink small" text-anchor="middle">3 Forma</text>
+  <text x="898" y="220" class="ink small" text-anchor="middle">4 Marco</text>
+  <text x="1174" y="220" class="ink small" text-anchor="middle">5 Lectura</text>
+  <text x="1450" y="220" class="muted small" text-anchor="end">6 Resultado</text>
+
+  <!-- Phone 1 -->
+  <g transform="translate(55 270)" filter="url(#shadow)">
+    <rect width="330" height="690" rx="30" class="phone"/>
+    <rect width="330" height="118" rx="30" fill="url(#header)"/>
+    <rect y="88" width="330" height="30" fill="url(#header)"/>
+    <text x="28" y="48" fill="#FFFFFF" class="label">PASO 1 DE 5</text>
+    <text x="28" y="84" fill="#FFFFFF" class="title">Empieza por el enlace</text>
+    <text x="28" y="155" class="muted small">¿Qué quieres convertir en QR?</text>
+    <rect x="24" y="177" width="282" height="116" rx="16" fill="#F6F8FB" stroke="#2557D6" stroke-width="2"/>
+    <text x="42" y="207" class="muted small">URL o texto</text>
+    <text x="42" y="245" class="ink body">https://ejemplo.com/...</text>
+    <circle cx="280" cy="215" r="17" fill="#E9EEFF"/><circle cx="274" cy="210" r="5" fill="#2557D6"/>
+    <line x1="278" y1="215" x2="289" y2="226" stroke="#2557D6" stroke-width="3" stroke-linecap="round"/>
+    <rect x="24" y="314" width="282" height="54" rx="14" fill="#E2F3F0"/>
+    <circle cx="53" cy="341" r="14" fill="#0F766E"/><path d="M46 341h14M53 334v14" stroke="#FFFFFF" stroke-width="2"/>
+    <text x="78" y="347" class="ink body">Pegar desde portapapeles</text>
+    <line x1="24" y1="490" x2="306" y2="490" class="line"/>
+    <text x="24" y="523" class="muted small">Texto libre también funciona.</text>
+    <rect x="24" y="600" width="282" height="58" rx="16" fill="#2557D6"/>
+    <text x="165" y="636" fill="#FFFFFF" text-anchor="middle" class="body">Continuar →</text>
+  </g>
+  <text x="220" y="995" class="ink title" text-anchor="middle">Entrada</text>
+  <text x="220" y="1022" class="muted small" text-anchor="middle">una decisión principal</text>
+
+  <!-- Phone 2 -->
+  <g transform="translate(425 270)" filter="url(#shadow)">
+    <rect width="330" height="690" rx="30" class="phone"/>
+    <text x="28" y="48" class="label" fill="#2557D6">PASO 3 DE 6</text>
+    <text x="28" y="84" class="ink title">Elige el carácter</text>
+    <text x="28" y="116" class="muted small">Elige un punto de partida; podrás ajustar después.</text>
+    <!-- mini QR -->
+    <rect x="96" y="145" width="138" height="138" rx="18" fill="#172033"/>
+    <g fill="#FFFFFF">
+      <rect x="112" y="161" width="32" height="32"/><rect x="186" y="161" width="32" height="32"/><rect x="112" y="235" width="32" height="32"/>
+    </g>
+    <g fill="#DCE5FF">
+      <circle cx="158" cy="166" r="4"/><circle cx="170" cy="178" r="4"/><circle cx="158" cy="190" r="4"/><circle cx="170" cy="202" r="4"/><circle cx="194" cy="213" r="4"/><circle cx="182" cy="225" r="4"/><circle cx="206" cy="237" r="4"/><circle cx="170" cy="249" r="4"/>
+    </g>
+    <text x="24" y="322" class="muted small">FORMAS</text>
+    <rect x="24" y="340" width="282" height="56" rx="14" fill="#E9EEFF" stroke="#2557D6" stroke-width="2"/>
+    <circle cx="51" cy="368" r="10" fill="#172033"/><text x="76" y="374" class="ink body">Limpio</text><text x="278" y="374" class="ink body" text-anchor="end">✓</text>
+    <rect x="24" y="408" width="282" height="56" rx="14" fill="#FFFFFF" stroke="#D7DEE8" stroke-width="2"/>
+    <circle cx="51" cy="436" r="10" fill="#6D28D9"/><text x="76" y="442" class="ink body">Suave</text>
+    <rect x="24" y="476" width="282" height="56" rx="14" fill="#FFFFFF" stroke="#D7DEE8" stroke-width="2"/>
+    <circle cx="51" cy="504" r="10" fill="#0F766E"/><text x="76" y="510" class="ink body">Geométrico</text>
+    <rect x="24" y="600" width="124" height="58" rx="16" fill="#FFFFFF" stroke="#2557D6" stroke-width="2"/><text x="86" y="636" fill="#2557D6" text-anchor="middle" class="body">← Atrás</text>
+    <rect x="158" y="600" width="148" height="58" rx="16" fill="#2557D6"/><text x="232" y="636" fill="#FFFFFF" text-anchor="middle" class="body">Continuar →</text>
+  </g>
+  <text x="590" y="995" class="ink title" text-anchor="middle">Forma</text>
+  <text x="590" y="1022" class="muted small" text-anchor="middle">una decisión visual</text>
+
+  <!-- Phone 3 -->
+  <g transform="translate(795 270)" filter="url(#shadow)">
+    <rect width="330" height="690" rx="30" class="phone"/>
+    <text x="28" y="48" class="label" fill="#2557D6">PASO 4 DE 6</text>
+    <text x="28" y="84" class="ink title">Elige el marco</text>
+    <text x="28" y="116" class="muted small">La estética nunca debe impedir el escaneo.</text>
+    <rect x="24" y="147" width="282" height="76" rx="16" fill="#E2F3F0"/>
+    <circle cx="58" cy="185" r="18" fill="#0F766E"/><path d="M49 185l6 6 12-14" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="88" y="181" class="ink body">Buena lectura</text><text x="88" y="204" class="muted small">Contraste alto · nivel H</text>
+    <text x="24" y="262" class="muted small">COLOR DEL CÓDIGO</text>
+    <rect x="24" y="280" width="132" height="58" rx="14" fill="#172033"/><text x="90" y="315" fill="#FFFFFF" text-anchor="middle" class="small">#172033</text>
+    <text x="174" y="262" class="muted small">FONDO</text>
+    <rect x="174" y="280" width="132" height="58" rx="14" fill="#FFFFFF" stroke="#D7DEE8" stroke-width="2"/><text x="240" y="315" class="ink small" text-anchor="middle">#FFFFFF</text>
+    <text x="24" y="382" class="muted small">LOGO (OPCIONAL)</text>
+    <rect x="24" y="400" width="282" height="60" rx="15" fill="#FFFFFF" stroke="#D7DEE8" stroke-width="2"/>
+    <circle cx="54" cy="430" r="15" fill="#E9EEFF"/><path d="M47 430h14M54 423v14" stroke="#2557D6" stroke-width="2"/><text x="82" y="436" class="ink body">Añadir logo</text>
+    <rect x="24" y="490" width="282" height="48" rx="14" fill="#FFF4DF"/><circle cx="50" cy="514" r="12" fill="#B45309"/><text x="50" y="519" fill="#FFFFFF" text-anchor="middle" class="small">i</text><text x="74" y="520" class="ink small">El fondo claro protege la lectura</text>
+    <rect x="24" y="600" width="124" height="58" rx="16" fill="#FFFFFF" stroke="#2557D6" stroke-width="2"/><text x="86" y="636" fill="#2557D6" text-anchor="middle" class="body">← Atrás</text>
+    <rect x="158" y="600" width="148" height="58" rx="16" fill="#2557D6"/><text x="232" y="636" fill="#FFFFFF" text-anchor="middle" class="body">Revisar →</text>
+  </g>
+  <text x="960" y="995" class="ink title" text-anchor="middle">Marco</text>
+  <text x="960" y="1022" class="muted small" text-anchor="middle">feedback textual + visual</text>
+
+  <!-- Phone 4 -->
+  <g transform="translate(1165 270)" filter="url(#shadow)">
+    <rect width="330" height="690" rx="30" class="phone"/>
+    <text x="28" y="48" class="label" fill="#2557D6">PASO 6 DE 6</text>
+    <text x="28" y="84" class="ink title">Listo para crear</text>
+    <text x="28" y="116" class="muted small">Revisa antes de generar.</text>
+    <rect x="57" y="145" width="216" height="216" rx="18" fill="#172033"/>
+    <g fill="#FFFFFF">
+      <rect x="76" y="164" width="48" height="48"/><rect x="206" y="164" width="48" height="48"/><rect x="76" y="294" width="48" height="48"/>
+    </g>
+    <g fill="#DCE5FF">
+      <circle cx="145" cy="178" r="6"/><circle cx="163" cy="196" r="6"/><circle cx="145" cy="214" r="6"/><circle cx="181" cy="232" r="6"/><circle cx="199" cy="250" r="6"/><circle cx="145" cy="268" r="6"/><circle cx="163" cy="286" r="6"/><circle cx="217" cy="286" r="6"/>
+    </g>
+    <rect x="24" y="398" width="282" height="66" rx="15" fill="#F6F8FB"/>
+    <text x="42" y="424" class="muted small">DESTINO</text><text x="42" y="450" class="ink body">ejemplo.com/landing</text>
+    <rect x="24" y="484" width="134" height="46" rx="13" fill="#E9EEFF"/><text x="91" y="513" class="ink small" text-anchor="middle">Limpio · H</text>
+    <rect x="168" y="484" width="138" height="46" rx="13" fill="#E2F3F0"/><text x="237" y="513" class="ink small" text-anchor="middle">✓ Legible</text>
+    <rect x="24" y="600" width="282" height="58" rx="16" fill="#2557D6"/><text x="165" y="636" fill="#FFFFFF" text-anchor="middle" class="body">Crear código QR</text>
+  </g>
+  <text x="1330" y="995" class="ink title" text-anchor="middle">Revisión</text>
+  <text x="1330" y="1022" class="muted small" text-anchor="middle">confianza antes de generar</text>
+</svg>

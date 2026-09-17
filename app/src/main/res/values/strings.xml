@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Iguaque QR</string>
+    <string name="app_description">Generador de c&#243;digos QR creativos</string>
+    <string name="create_qr">Crear QR</string>
+    <string name="history">Historial</string>
+    <string name="enter_text">Introduce texto o URL</string>
+    <string name="qr_color">Color del QR</string>
+    <string name="bg_color">Color de fondo</string>
+    <string name="dot_style">Estilo de puntos</string>
+    <string name="frame_style">Marco creativo</string>
+    <string name="no_frame">Sin marco</string>
+    <string name="download">Descargar</string>
+    <string name="share">Compartir</string>
+    <string name="error_correction">Correcci&#243;n de errores</string>
+    <string name="add_logo">A&#241;adir logo</string>
+    <string name="remove_logo">Quitar logo</string>
+    <string name="open_url">Abrir URL</string>
+    <string name="copy_text">Copiar texto</string>
+    <string name="no_history">No hay elementos en el historial</string>
+    <string name="hide_bottom_bar">Ocultar barra inferior</string>
+</resources>

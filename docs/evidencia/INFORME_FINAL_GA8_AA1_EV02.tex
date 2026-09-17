@@ -1,0 +1,99 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{spanish}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\newcommand{\code}[1]{\texttt{\detokenize{#1}}}
+
+\title{Informe final\\\large GA8-220501096-AA1-EV02 — Módulos integrados}
+\author{Diego Alberto Parra Garzón\\Iguaque QR}
+\date{17 de septiembre de 2026}
+
+\begin{document}
+\maketitle
+
+\section{Resumen}
+Iguaque QR es una aplicación Android para crear, personalizar, guardar y compartir códigos QR mediante un flujo guiado de seis pasos. La copia de entrega contiene el código fuente, configuración Gradle, documentación técnica, avisos de terceros, licencia GPLv3 y el ejecutable debug de pruebas.
+
+\section{Resultado técnico}
+La compilación \code{assembleDebug} y el análisis \code{lintDebug} terminaron correctamente. Las pruebas unitarias existentes terminan con \code{NO-SOURCE}, porque el proyecto no contiene casos automatizados implementados.
+
+El módulo residual de cámara y escaneo fue retirado. Se conservaron ZXing Core, Room, el historial de QR generados, el guardado y el uso compartido. No se modificó la aplicación publicada ni la firma release.
+
+\section{Validación en dispositivo}
+Se verificó la variante \code{com.diegodebian.iguaqueqr.test} en un Xiaomi M2101K6G con Android 13/API 33. La aplicación publicada permaneció instalada. El usuario confirmó visualmente que la barra inferior aparece con ``Crear QR'' e ``Historial'', que los botones del asistente siguen visibles, que se puede regresar al creador y que el QR generado aparece en el historial.
+
+\section{Ejecutable}
+\begin{tabular}{>{\bfseries}p{4cm}p{10cm}}
+Archivo & \code{app/build/outputs/apk/debug/app-debug.apk}\\
+Paquete & \code{com.diegodebian.iguaqueqr.test}\\
+Versión & \code{1.0.1-test}\\
+SHA-256 & \code{EFA6D69F4307A113C3AE4799240C0E682E8D17C26C09D1D0A0FAA18909F6841C}
+\end{tabular}
+
+\section{Módulos, entradas y salidas}
+\begin{longtable}{p{3.2cm}p{4.4cm}p{5.4cm}}
+\toprule
+\textbf{Módulo} & \textbf{Entrada} & \textbf{Salida}\\
+\midrule
+Bienvenida & Apertura de la app & Acceso al creador\\
+Contenido & Texto o URL & Contenido confirmado\\
+Personalización & Forma, marco, colores y corrección & Configuración QR\\
+Legibilidad & Colores y contraste & Estado de legibilidad\\
+Renderizado & Configuración confirmada & Bitmap QR\\
+Resultado & Bitmap generado & QR listo\\
+Guardado/compartir & Acción del usuario & PNG local o selector Android\\
+Historial & Registro generado & Lista local persistente\\
+\bottomrule
+\end{longtable}
+
+\section{Persistencia y dependencias}
+Room utiliza la base local \code{qr_art_database}, tabla \code{qr_history}, versión de esquema 1. La entidad y el DAO se conservaron sin cambios estructurales. \code{generateQR()} inserta registros con \code{type = "generated"}. ZXing Core 3.5.2 participa en la generación; las demás dependencias y licencias se detallan en \code{THIRD_PARTY_NOTICES.md}.
+
+\section{Pruebas}
+\begin{longtable}{p{2.1cm}p{9.5cm}p{2.2cm}}
+\toprule
+\textbf{Caso} & \textbf{Verificación} & \textbf{Estado}\\
+\midrule
+CP-01 & Apertura de la aplicación & Aprobado\\
+CP-02 & Pantalla informativa inicial & Aprobado\\
+CP-16 & Generación del QR & Aprobado\\
+CP-21 & QR generado visible en el historial & Aprobado\\
+NAV-01 & Barra inferior visible & Aprobado\\
+NAV-02 & Solo Crear QR e Historial & Aprobado\\
+NAV-03 & Regreso a Crear QR & Aprobado\\
+NAV-04 & Botones del asistente visibles & Aprobado\\
+\bottomrule
+\end{longtable}
+Los demás casos de la matriz requieren registro manual individual y no se marcan como aprobados por inferencia. El escaneo interno y la cámara están fuera del alcance del producto.
+
+\section{Requisitos de la evidencia}
+\begin{longtable}{p{8.5cm}p{4.8cm}}
+\toprule
+\textbf{Requisito} & \textbf{Estado}\\
+\midrule
+Código fuente & Disponible en la copia limpia\\
+Archivo ejecutable & APK debug generado\\
+Repositorio de control de versiones & Pendiente de inicialización/publicación autorizada\\
+Documentación de módulos, entradas y salidas & Disponible\\
+Pruebas y ambientes & Parcialmente documentados\\
+Configuración de base de datos & Room documentado; esquema versión 1\\
+Manual técnico & Disponible\\
+URL & Pendiente de definir o publicar\\
+Informe final PDF & Este documento\\
+\bottomrule
+\end{longtable}
+
+\section{Observaciones y congelamiento}
+No hay pruebas unitarias implementadas. Permanecen documentos UX históricos que mencionan escaneo y deben excluirse o actualizarse antes de una entrega documental definitiva. Los archivos sensibles y configuraciones locales no forman parte de la copia limpia.
+
+El desarrollo funcional queda congelado. Cualquier cambio posterior requiere una autorización nueva y separada.
+
+\end{document}
