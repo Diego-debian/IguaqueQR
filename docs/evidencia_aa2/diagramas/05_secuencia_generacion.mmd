@@ -1,0 +1,17 @@
+sequenceDiagram
+actor U as Usuario
+participant H as HomeScreen
+participant V as QRViewModel
+participant R as QRRenderer
+participant Z as ZXing
+participant D as Room
+participant S as Resultado
+U->>H: Completa los pasos y pulsa Generar
+H->>V: generateQR()
+V->>R: genera bitmap con configuración
+R->>Z: encode(text, hints UTF-8)
+Z-->>R: BitMatrix
+R-->>V: Bitmap QR
+V->>D: inserta QRHistory type=generated
+V-->>S: actualiza generatedBitmap
+S-->>U: muestra QR y resumen

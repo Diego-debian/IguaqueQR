@@ -64,7 +64,8 @@ class QRRenderer {
         val writer = QRCodeWriter()
         val bitMatrix: BitMatrix = writer.encode(text, com.google.zxing.BarcodeFormat.QR_CODE, 0, 0, mapOf(
             com.google.zxing.EncodeHintType.ERROR_CORRECTION to errorLevel.zxingLevel,
-            com.google.zxing.EncodeHintType.MARGIN to 0
+            com.google.zxing.EncodeHintType.MARGIN to 0,
+            com.google.zxing.EncodeHintType.CHARACTER_SET to "UTF-8"
         ))
 
         val moduleCount = bitMatrix.width

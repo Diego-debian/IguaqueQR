@@ -70,12 +70,13 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.DrawScope
-import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextAlign
@@ -88,6 +89,8 @@ import java.util.Locale
 import com.qrart.drawing.DotStyle
 import com.qrart.drawing.ErrorLevel
 import com.qrart.drawing.FrameType
+import com.qrart.logic.ContrastUtils
+import com.qrart.logic.classifyContent
 import com.qrart.ui.components.ErrorLevelCard
 import com.qrart.ui.components.GlassCard
 import com.qrart.ui.components.InfoBanner
@@ -472,7 +475,7 @@ private fun DestinationStep(
     GlassCard {
         Text("TIPO DETECTADO", style = MaterialTheme.typography.labelSmall, color = DUABlue, fontWeight = FontWeight.Bold)
         Spacer(modifier = Modifier.height(6.dp))
-        Text(contentType(text), style = MaterialTheme.typography.titleLarge, color = DUAInk, fontWeight = FontWeight.Bold)
+        Text(classifyContent(text), style = MaterialTheme.typography.titleLarge, color = DUAInk, fontWeight = FontWeight.Bold)
         Spacer(modifier = Modifier.height(14.dp))
         Card(
             colors = CardDefaults.cardColors(containerColor = DUACanvas),
@@ -576,8 +579,8 @@ private fun AccessibilityStep(
     viewModel: QRViewModel,
     onLogoPick: () -> Unit
 ) {
-    val contrast = contrastRatio(Color(viewModel.qrColor), Color(viewModel.bgColor))
-    val readable = contrast >= 4.5f
+    val contrast = ContrastUtils.ratio(viewModel.qrColor, viewModel.bgColor)
+    val readable = ContrastUtils.isReadable(contrast)
 
     StepTitle(
         eyebrow = "Paso 5 · Lectura",
@@ -742,7 +745,7 @@ private fun ReviewStep(
 
     QRPreview(
         bitmap = viewModel.generatedBitmap,
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier.fillMaxWidth().testTag("qr_preview")
     )
 
     Spacer(modifier = Modifier.height(12.dp))
@@ -752,7 +755,7 @@ private fun ReviewStep(
         SummaryRow("Destino", viewModel.text)
         SummaryRow("Puntos", dotLabel(viewModel.dotStyle))
         SummaryRow("Marco", frameLabel(viewModel.frameType))
-        SummaryRow("Contraste", formatContrast(contrastRatio(Color(viewModel.qrColor), Color(viewModel.bgColor))))
+        SummaryRow("Contraste", formatContrast(ContrastUtils.ratio(viewModel.qrColor, viewModel.bgColor)))
     }
 
     Spacer(modifier = Modifier.height(12.dp))
@@ -768,7 +771,7 @@ private fun ReviewStep(
                 viewModel.generatedBitmap = null
                 viewModel.generateQR()
             },
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth().testTag("generate_qr"),
             gradientColors = listOf(DUABlue, DUAAccent)
         )
     } else {
@@ -1038,15 +1041,6 @@ private fun ColorSwatches(selected: Color, colors: List<Color>, onSelect: (Color
 }
 
 
-private fun contentType(value: String): String {
-    return when {
-        value.startsWith("http://", ignoreCase = true) || value.startsWith("https://", ignoreCase = true) -> "Enlace web"
-        value.contains("@") && value.contains(".") -> "Contacto o correo"
-        value.lines().size > 1 -> "Texto multilínea"
-        else -> "Texto libre"
-    }
-}
-
 private fun dotLabel(style: DotStyle): String = when (style) {
     DotStyle.SQUARE -> "Cuadrado"
     DotStyle.CIRCLE -> "Redondo"
@@ -1074,12 +1068,6 @@ private fun frameLabel(frame: FrameType): String = when (frame) {
     FrameType.HOUSE -> "Casa"
     FrameType.CROWN -> "Corona"
     FrameType.FROG -> "Rana"
-}
-
-private fun contrastRatio(foreground: Color, background: Color): Float {
-    val lighter = maxOf(foreground.luminance(), background.luminance())
-    val darker = minOf(foreground.luminance(), background.luminance())
-    return (lighter + 0.05f) / (darker + 0.05f)
 }
 
 private fun formatContrast(value: Float): String = String.format(Locale.getDefault(), "%.1f:1", value)

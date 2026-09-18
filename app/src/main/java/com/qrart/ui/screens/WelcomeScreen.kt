@@ -50,6 +50,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.platform.testTag
 import com.qrart.ui.theme.DUAAccent
 import com.qrart.ui.theme.DUABlue
 import com.qrart.ui.theme.DUACanvas
@@ -127,6 +128,7 @@ fun WelcomeScreen(onContinue: () -> Unit) {
                     Spacer(modifier = Modifier.height(22.dp))
                     Text(
                         text = "Iguaque QR",
+                        modifier = Modifier.testTag("welcome_title"),
                         style = MaterialTheme.typography.headlineLarge,
                         fontWeight = FontWeight.ExtraBold,
                         color = DUAInk
@@ -164,7 +166,8 @@ fun WelcomeScreen(onContinue: () -> Unit) {
                         onClick = onContinue,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(56.dp),
+                            .height(56.dp)
+                            .testTag("welcome_continue"),
                         shape = RoundedCornerShape(16.dp),
                         colors = ButtonDefaults.buttonColors(
                             containerColor = DUABlue,

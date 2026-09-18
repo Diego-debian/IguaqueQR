@@ -1,0 +1,37 @@
+classDiagram
+class MainActivity
+class WelcomeScreen
+class HomeScreen
+class HistoryScreen
+class QRViewModel {
+  +text: String
+  +generatedBitmap: Bitmap?
+  +generateQR()
+  +saveQRToGallery(bitmap)
+  +shareQR(bitmap)
+}
+class QRRenderer { +generateQR(text, dotStyle, frameType, errorLevel, qrColor, bgColor, logoBitmap) }
+class ContentClassifier { +classifyContent(value): String }
+class ContrastUtils { +ratio(foreground, background): Float
+  +isReadable(ratio): Boolean }
+class DotStyle
+class FrameType
+class ErrorLevel
+class QRHistory
+class QRHistoryDao
+class QRDatabase { +getDatabase(context): QRDatabase
+  +qrHistoryDao(): QRHistoryDao }
+MainActivity --> WelcomeScreen
+MainActivity --> HomeScreen
+MainActivity --> HistoryScreen
+HomeScreen --> QRViewModel
+HistoryScreen --> QRViewModel
+HomeScreen --> ContentClassifier
+HomeScreen --> ContrastUtils
+QRViewModel --> QRRenderer
+QRViewModel --> QRHistoryDao
+QRRenderer --> DotStyle
+QRRenderer --> FrameType
+QRRenderer --> ErrorLevel
+QRDatabase --> QRHistoryDao
+QRHistoryDao --> QRHistory

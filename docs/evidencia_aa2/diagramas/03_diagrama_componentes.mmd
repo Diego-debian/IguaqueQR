@@ -1,0 +1,23 @@
+flowchart LR
+ui[Interfaz Jetpack Compose]
+nav[Navigation Compose]
+vm[QRViewModel]
+logic[ContentClassifier<br/>ContrastUtils]
+renderer[QRRenderer]
+zxing[ZXing Core]
+room[Room<br/>QRDatabase / QRHistoryDao]
+media[MediaStore]
+provider[FileProvider]
+intent[Intent Android]
+fs[Sistema de archivos del dispositivo]
+ui --> nav
+ui --> vm
+ui --> logic
+vm --> renderer
+renderer --> zxing
+vm --> room
+vm --> media
+vm --> provider
+provider --> intent
+media --> fs
+provider --> fs

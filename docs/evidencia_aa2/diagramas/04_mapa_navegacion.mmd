@@ -1,0 +1,18 @@
+flowchart TB
+welcome[Pantalla de bienvenida]
+bar[Barra inferior]
+home[Ruta home<br/>Crear QR]
+history[Ruta history<br/>Historial]
+welcome --> home
+bar --> home
+bar --> history
+subgraph wizard[Un solo HomeScreen: estados internos, no rutas]
+content[1. Contenido]
+destination[2. Destino]
+shape[3. Forma]
+frame[4. Marco]
+access[5. Lectura / accesibilidad]
+result[6. Resultado / revisión]
+content --> destination --> shape --> frame --> access --> result
+end
+home --> wizard

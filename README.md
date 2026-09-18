@@ -112,6 +112,17 @@ La configuración de firma de publicación no se incluye en el repositorio.
 - [Matriz de pruebas](docs/evidencia/MATRIZ_PRUEBAS.md)
 - [Avisos de terceros](THIRD_PARTY_NOTICES.md)
 - [Informe académico](docs/evidencia/INFORME_FINAL_GA8_AA1_EV02.md)
+- [Resultados de pruebas AA2](docs/evidencia_aa2/RESULTADOS_PRUEBAS_AA2.md)
+- [Incidencia Compose UI Test](docs/evidencia_aa2/INCIDENCIA_COMPOSE_UI_TEST.md)
+
+## Resultados de la evidencia AA2
+
+- 13 pruebas JVM aprobadas.
+- 4 pruebas Room aprobadas.
+- 5 pruebas QRRenderer aprobadas.
+- 22 pruebas automatizadas ejecutadas y aprobadas.
+- 5 pruebas Compose diseñadas y no ejecutadas por fallo del runner Xiaomi/MIUI.
+- Corrección Unicode verificada mediante generación y decodificación con ZXing.
 
 ## Licencia
 

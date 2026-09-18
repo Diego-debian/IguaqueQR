@@ -1,0 +1,18 @@
+flowchart LR
+root[com.qrart]
+data[com.qrart.data]
+drawing[com.qrart.drawing]
+logic[com.qrart.logic]
+screens[com.qrart.ui.screens]
+components[com.qrart.ui.components]
+theme[com.qrart.ui.theme]
+vm[com.qrart.viewmodel]
+root --> screens
+root --> vm
+screens --> components
+screens --> theme
+screens --> logic
+screens --> drawing
+vm --> data
+vm --> drawing
+data --> root

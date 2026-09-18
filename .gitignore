@@ -38,3 +38,9 @@ Thumbs.db
 # Java and Kotlin artifacts
 *.class
 *.hprof
+
+# Entregables locales no publicables
+*.apk
+*.aab
+GA8-220501096-AA2-EV02_Diego_Parra/
+GA8-220501096-AA2-EV02_Diego_Parra.zip
